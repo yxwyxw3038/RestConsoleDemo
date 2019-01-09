@@ -1,0 +1,1596 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ReactTSDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="200" />
+          <Property Name="Content" Type="varchar" MaxLength="8000" />
+          <Property Name="FilePath" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tb_Test">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="FName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FSex" Type="nvarchar" MaxLength="50" />
+          <Property Name="FAge" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_Test1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbBillNo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CurrentId" Type="int" />
+          <Property Name="CurrentBillNo" Type="varchar" MaxLength="30" />
+          <Property Name="CurrentTime" Type="datetime" />
+          <Property Name="MaskInfo" Type="varchar" MaxLength="10" />
+          <Property Name="EndLength" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CodeName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbBlackList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+          <Property Name="Port" Type="varchar" MaxLength="10" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Notes" Type="varchar" MaxLength="2000" />
+          <Property Name="IsAble" Type="int" />
+        </EntityType>
+        <EntityType Name="tbButton">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Icon" Type="varchar" MaxLength="50" />
+          <Property Name="Sort" Type="int" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbDataType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DataType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sort" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbDepartment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentName" Type="varchar" MaxLength="50" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="Sort" Type="int" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbFields">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TabId" Type="int" Nullable="false" />
+          <Property Name="FieldName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FieldViewName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FieldDataTypeId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsSearch" Type="bit" />
+          <Property Name="Sort" Type="int" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbHtmlType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HtmlTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sort" Type="int" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbIcons">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IconName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IconCssInfo" Type="nvarchar" MaxLength="2000" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="LinkAddress" Type="varchar" MaxLength="100" />
+          <Property Name="Icon" Type="varchar" MaxLength="50" />
+          <Property Name="Sort" Type="int" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbMenuButton">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuId" Type="int" />
+          <Property Name="ButtonId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbNews">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ftypeid" Type="int" />
+          <Property Name="ftitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="fcontent" Type="text" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbNewsType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ftypename" Type="nvarchar" MaxLength="50" />
+          <Property Name="fsort" Type="int" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbNotice">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="No" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="ftypeid" Type="int" />
+          <Property Name="ftitle" Type="varchar" MaxLength="500" />
+          <Property Name="fcontent" Type="varchar" MaxLength="5000" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+          <Property Name="NoticeTime" Type="datetime" />
+          <Property Name="SendBeginTime" Type="datetime" />
+          <Property Name="SendEndTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbNoticeUser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NoticeCode" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="SendFlag" Type="int" />
+          <Property Name="SendTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbParameter">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodeName" Type="varchar" MaxLength="200" />
+          <Property Name="FatherCode" Type="varchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbRequestion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ftypeid" Type="int" />
+          <Property Name="ftitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="fcontent" Type="text" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbRequestionType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ftypename" Type="nvarchar" MaxLength="50" />
+          <Property Name="fsort" Type="int" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbRoleMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="MenuId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbRoleMenuButton">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="MenuId" Type="int" />
+          <Property Name="ButtonId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TabName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TabViewName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RealName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MobilePhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="IsAble" Type="int" />
+          <Property Name="IfChangePwd" Type="int" />
+        </EntityType>
+        <EntityType Name="tbUserDepartment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="DepartmentId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbUserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="RoleId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbUserToken">
+          <Key>
+            <PropertyRef Name="Token" />
+          </Key>
+          <Property Name="Token" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Port" Type="nvarchar" MaxLength="10" />
+          <Property Name="LoginOutTime" Type="datetime" />
+          <Property Name="IsLoginOut" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“ReactTSDB.dbo.test”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="test">
+          <Property Name="id" Type="int" />
+          <Property Name="text" Type="nvarchar" MaxLength="200" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“ReactTSDB.dbo.v_LoginViewInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_LoginViewInfo">
+          <Key>
+            <PropertyRef Name="Token" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="AccountName" />
+            <PropertyRef Name="RealName" />
+          </Key>
+          <Property Name="Token" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Port" Type="nvarchar" MaxLength="10" />
+          <Property Name="LoginOutTime" Type="datetime" />
+          <Property Name="IsLoginOut" Type="int" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RealName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“ReactTSDB.dbo.vw_Fields”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="vw_Fields">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="TabId" />
+            <PropertyRef Name="FieldViewName" />
+            <PropertyRef Name="FieldDataTypeId" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateTime" />
+            <PropertyRef Name="CreateBy" />
+            <PropertyRef Name="DataType" />
+            <PropertyRef Name="DataTypeName" />
+            <PropertyRef Name="TabName" />
+            <PropertyRef Name="TabViewName" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="TabId" Type="int" Nullable="false" />
+          <Property Name="FieldName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FieldViewName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FieldDataTypeId" Type="int" Nullable="false" />
+          <Property Name="IsSearch" Type="bit" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Sort" Type="int" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="DataType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TabName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TabViewName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“ReactTSDB.dbo.vw_News”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="vw_News">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="ftypeid" Type="int" />
+          <Property Name="ftitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="fcontent" Type="text" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ftypename" Type="nvarchar" MaxLength="50" />
+          <Property Name="fsort" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“ReactTSDB.dbo.vw_requestion”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="vw_requestion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="ftypeid" Type="int" />
+          <Property Name="ftitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="fcontent" Type="text" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ftypename" Type="nvarchar" MaxLength="50" />
+          <Property Name="fsort" Type="int" />
+        </EntityType>
+        <Function Name="func_SplitStrToTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="str" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="str2table" Type="varchar" MaxLength="100" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="sp_CreateTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TabName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_GetAuthorityByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_MvcPager" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+          <Parameter Name="CurrentCount" Type="int" Mode="In" />
+          <Parameter Name="TableName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Where" Type="nvarchar" Mode="In" />
+          <Parameter Name="Order" Type="nvarchar" Mode="In" />
+          <Parameter Name="TotalCount" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="sp_Pager" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tableName" Type="varchar" Mode="In" />
+          <Parameter Name="columns" Type="varchar" Mode="In" />
+          <Parameter Name="order" Type="varchar" Mode="In" />
+          <Parameter Name="pageSize" Type="int" Mode="In" />
+          <Parameter Name="pageIndex" Type="int" Mode="In" />
+          <Parameter Name="where" Type="varchar" Mode="In" />
+          <Parameter Name="totalCount" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="sp_SetRoleAuthorize" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleId" Type="int" Mode="In" />
+          <Parameter Name="MenuButtonIds" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="ReactTSDBModelStoreContainer">
+          <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Test" EntityType="Self.tb_Test" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Test1" EntityType="Self.tb_Test1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbBillNo" EntityType="Self.tbBillNo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbBlackList" EntityType="Self.tbBlackList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbButton" EntityType="Self.tbButton" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbDataType" EntityType="Self.tbDataType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbDepartment" EntityType="Self.tbDepartment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbFields" EntityType="Self.tbFields" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbHtmlType" EntityType="Self.tbHtmlType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbIcons" EntityType="Self.tbIcons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbMenu" EntityType="Self.tbMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbMenuButton" EntityType="Self.tbMenuButton" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbNews" EntityType="Self.tbNews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbNewsType" EntityType="Self.tbNewsType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbNotice" EntityType="Self.tbNotice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbNoticeUser" EntityType="Self.tbNoticeUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbParameter" EntityType="Self.tbParameter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbRequestion" EntityType="Self.tbRequestion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbRequestionType" EntityType="Self.tbRequestionType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbRole" EntityType="Self.tbRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbRoleMenu" EntityType="Self.tbRoleMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbRoleMenuButton" EntityType="Self.tbRoleMenuButton" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbTable" EntityType="Self.tbTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbUser" EntityType="Self.tbUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbUserDepartment" EntityType="Self.tbUserDepartment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbUserRole" EntityType="Self.tbUserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbUserToken" EntityType="Self.tbUserToken" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="v_LoginViewInfo" EntityType="Self.v_LoginViewInfo" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_LoginViewInfo].[Token] AS [Token], 
+    [v_LoginViewInfo].[UserId] AS [UserId], 
+    [v_LoginViewInfo].[CreateTime] AS [CreateTime], 
+    [v_LoginViewInfo].[UpdateTime] AS [UpdateTime], 
+    [v_LoginViewInfo].[Address] AS [Address], 
+    [v_LoginViewInfo].[Port] AS [Port], 
+    [v_LoginViewInfo].[LoginOutTime] AS [LoginOutTime], 
+    [v_LoginViewInfo].[IsLoginOut] AS [IsLoginOut], 
+    [v_LoginViewInfo].[AccountName] AS [AccountName], 
+    [v_LoginViewInfo].[RealName] AS [RealName]
+    FROM [dbo].[v_LoginViewInfo] AS [v_LoginViewInfo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_Fields" EntityType="Self.vw_Fields" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Fields].[Id] AS [Id], 
+    [vw_Fields].[TabId] AS [TabId], 
+    [vw_Fields].[FieldName] AS [FieldName], 
+    [vw_Fields].[FieldViewName] AS [FieldViewName], 
+    [vw_Fields].[FieldDataTypeId] AS [FieldDataTypeId], 
+    [vw_Fields].[IsSearch] AS [IsSearch], 
+    [vw_Fields].[IsActive] AS [IsActive], 
+    [vw_Fields].[Sort] AS [Sort], 
+    [vw_Fields].[CreateTime] AS [CreateTime], 
+    [vw_Fields].[CreateBy] AS [CreateBy], 
+    [vw_Fields].[UpdateTime] AS [UpdateTime], 
+    [vw_Fields].[UpdateBy] AS [UpdateBy], 
+    [vw_Fields].[DataType] AS [DataType], 
+    [vw_Fields].[DataTypeName] AS [DataTypeName], 
+    [vw_Fields].[TabName] AS [TabName], 
+    [vw_Fields].[TabViewName] AS [TabViewName]
+    FROM [dbo].[vw_Fields] AS [vw_Fields]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_News" EntityType="Self.vw_News" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_News].[id] AS [id], 
+    [vw_News].[ftypeid] AS [ftypeid], 
+    [vw_News].[ftitle] AS [ftitle], 
+    [vw_News].[fcontent] AS [fcontent], 
+    [vw_News].[CreateTime] AS [CreateTime], 
+    [vw_News].[CreateBy] AS [CreateBy], 
+    [vw_News].[UpdateTime] AS [UpdateTime], 
+    [vw_News].[UpdateBy] AS [UpdateBy], 
+    [vw_News].[ftypename] AS [ftypename], 
+    [vw_News].[fsort] AS [fsort]
+    FROM [dbo].[vw_News] AS [vw_News]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_requestion" EntityType="Self.vw_requestion" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_requestion].[id] AS [id], 
+    [vw_requestion].[ftypeid] AS [ftypeid], 
+    [vw_requestion].[ftitle] AS [ftitle], 
+    [vw_requestion].[fcontent] AS [fcontent], 
+    [vw_requestion].[CreateTime] AS [CreateTime], 
+    [vw_requestion].[CreateBy] AS [CreateBy], 
+    [vw_requestion].[UpdateTime] AS [UpdateTime], 
+    [vw_requestion].[UpdateBy] AS [UpdateBy], 
+    [vw_requestion].[ftypename] AS [ftypename], 
+    [vw_requestion].[fsort] AS [fsort]
+    FROM [dbo].[vw_requestion] AS [vw_requestion]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ReactTSDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="func_SplitStrToTable_Result">
+          <Property Name="str2table" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="FilePath" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_Test">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FSex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FAge" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_Test1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbBillNo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CurrentId" Type="Int32" />
+          <Property Name="CurrentBillNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentTime" Type="DateTime" Precision="3" />
+          <Property Name="MaskInfo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EndLength" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CodeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbBlackList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Port" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Notes" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="IsAble" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbButton">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Icon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sort" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbDataType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DataType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbDepartment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="Sort" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbFields">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TabId" Type="Int32" Nullable="false" />
+          <Property Name="FieldName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FieldViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FieldDataTypeId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsSearch" Type="Boolean" />
+          <Property Name="Sort" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbHtmlType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HtmlTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sort" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbIcons">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IconName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IconCssInfo" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LinkAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Icon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sort" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbMenuButton">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuId" Type="Int32" />
+          <Property Name="ButtonId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbNews">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ftypeid" Type="Int32" />
+          <Property Name="ftitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fcontent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbNewsType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ftypename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fsort" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbNotice">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="No" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ftypeid" Type="Int32" />
+          <Property Name="ftitle" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fcontent" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="NoticeTime" Type="DateTime" Precision="3" />
+          <Property Name="SendBeginTime" Type="DateTime" Precision="3" />
+          <Property Name="SendEndTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbNoticeUser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NoticeCode" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SendFlag" Type="Int32" />
+          <Property Name="SendTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbParameter">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodeName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FatherCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbRequestion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ftypeid" Type="Int32" />
+          <Property Name="ftitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fcontent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbRequestionType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ftypename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fsort" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbRoleMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="MenuId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbRoleMenuButton">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="MenuId" Type="Int32" />
+          <Property Name="ButtonId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TabName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TabViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RealName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MobilePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsAble" Type="Int32" />
+          <Property Name="IfChangePwd" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbUserDepartment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="DepartmentId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbUserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="RoleId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbUserToken">
+          <Key>
+            <PropertyRef Name="Token" />
+          </Key>
+          <Property Name="Token" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Port" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LoginOutTime" Type="DateTime" Precision="3" />
+          <Property Name="IsLoginOut" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_LoginViewInfo">
+          <Key>
+            <PropertyRef Name="Token" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="AccountName" />
+            <PropertyRef Name="RealName" />
+          </Key>
+          <Property Name="Token" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Port" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LoginOutTime" Type="DateTime" Precision="3" />
+          <Property Name="IsLoginOut" Type="Int32" />
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RealName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vw_Fields">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="TabId" />
+            <PropertyRef Name="FieldViewName" />
+            <PropertyRef Name="FieldDataTypeId" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="CreateTime" />
+            <PropertyRef Name="CreateBy" />
+            <PropertyRef Name="DataType" />
+            <PropertyRef Name="DataTypeName" />
+            <PropertyRef Name="TabName" />
+            <PropertyRef Name="TabViewName" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="TabId" Type="Int32" Nullable="false" />
+          <Property Name="FieldName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FieldViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FieldDataTypeId" Type="Int32" Nullable="false" />
+          <Property Name="IsSearch" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Sort" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DataType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TabName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TabViewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vw_News">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="ftypeid" Type="Int32" />
+          <Property Name="ftitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fcontent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ftypename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fsort" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vw_requestion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="ftypeid" Type="Int32" />
+          <Property Name="ftitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fcontent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ftypename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fsort" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="AchieveDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Article" EntityType="Self.Article" />
+          <EntitySet Name="tb_Test" EntityType="Self.tb_Test" />
+          <EntitySet Name="tb_Test1" EntityType="Self.tb_Test1" />
+          <EntitySet Name="tbBillNo" EntityType="Self.tbBillNo" />
+          <EntitySet Name="tbBlackList" EntityType="Self.tbBlackList" />
+          <EntitySet Name="tbButton" EntityType="Self.tbButton" />
+          <EntitySet Name="tbDataType" EntityType="Self.tbDataType" />
+          <EntitySet Name="tbDepartment" EntityType="Self.tbDepartment" />
+          <EntitySet Name="tbFields" EntityType="Self.tbFields" />
+          <EntitySet Name="tbHtmlType" EntityType="Self.tbHtmlType" />
+          <EntitySet Name="tbIcons" EntityType="Self.tbIcons" />
+          <EntitySet Name="tbMenu" EntityType="Self.tbMenu" />
+          <EntitySet Name="tbMenuButton" EntityType="Self.tbMenuButton" />
+          <EntitySet Name="tbNews" EntityType="Self.tbNews" />
+          <EntitySet Name="tbNewsType" EntityType="Self.tbNewsType" />
+          <EntitySet Name="tbNotice" EntityType="Self.tbNotice" />
+          <EntitySet Name="tbNoticeUser" EntityType="Self.tbNoticeUser" />
+          <EntitySet Name="tbParameter" EntityType="Self.tbParameter" />
+          <EntitySet Name="tbRequestion" EntityType="Self.tbRequestion" />
+          <EntitySet Name="tbRequestionType" EntityType="Self.tbRequestionType" />
+          <EntitySet Name="tbRole" EntityType="Self.tbRole" />
+          <EntitySet Name="tbRoleMenu" EntityType="Self.tbRoleMenu" />
+          <EntitySet Name="tbRoleMenuButton" EntityType="Self.tbRoleMenuButton" />
+          <EntitySet Name="tbTable" EntityType="Self.tbTable" />
+          <EntitySet Name="tbUser" EntityType="Self.tbUser" />
+          <EntitySet Name="tbUserDepartment" EntityType="Self.tbUserDepartment" />
+          <EntitySet Name="tbUserRole" EntityType="Self.tbUserRole" />
+          <EntitySet Name="tbUserToken" EntityType="Self.tbUserToken" />
+          <EntitySet Name="v_LoginViewInfo" EntityType="Self.v_LoginViewInfo" />
+          <EntitySet Name="vw_Fields" EntityType="Self.vw_Fields" />
+          <EntitySet Name="vw_News" EntityType="Self.vw_News" />
+          <EntitySet Name="vw_requestion" EntityType="Self.vw_requestion" />
+          <FunctionImport Name="func_SplitStrToTable" ReturnType="Collection(ReactTSDBModel.func_SplitStrToTable_Result)" IsComposable="true">
+            <Parameter Name="str" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_CreateTable">
+            <Parameter Name="TabName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetAuthorityByUserId" ReturnType="Collection(ReactTSDBModel.sp_GetAuthorityByUserId_Result)">
+            <Parameter Name="userId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MvcPager">
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+            <Parameter Name="CurrentCount" Mode="In" Type="Int32" />
+            <Parameter Name="TableName" Mode="In" Type="String" />
+            <Parameter Name="Where" Mode="In" Type="String" />
+            <Parameter Name="Order" Mode="In" Type="String" />
+            <Parameter Name="TotalCount" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Pager">
+            <Parameter Name="tableName" Mode="In" Type="String" />
+            <Parameter Name="columns" Mode="In" Type="String" />
+            <Parameter Name="order" Mode="In" Type="String" />
+            <Parameter Name="pageSize" Mode="In" Type="Int32" />
+            <Parameter Name="pageIndex" Mode="In" Type="Int32" />
+            <Parameter Name="where" Mode="In" Type="String" />
+            <Parameter Name="totalCount" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_SetRoleAuthorize">
+            <Parameter Name="RoleId" Mode="In" Type="Int32" />
+            <Parameter Name="MenuButtonIds" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_GetAuthorityByUserId_Result">
+          <Property Type="Int32" Name="menuid" Nullable="false" />
+          <Property Type="String" Name="menuname" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="parentid" Nullable="true" />
+          <Property Type="String" Name="menuicon" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="buttonid" Nullable="true" />
+          <Property Type="String" Name="buttonname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="buttonicon" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="roleid" Nullable="true" />
+          <Property Type="String" Name="checked" Nullable="false" MaxLength="5" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ReactTSDBModelStoreContainer" CdmEntityContainer="AchieveDBEntities">
+          <EntitySetMapping Name="Article">
+            <EntityTypeMapping TypeName="ReactTSDBModel.Article">
+              <MappingFragment StoreEntitySet="Article">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Test">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tb_Test">
+              <MappingFragment StoreEntitySet="tb_Test">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="FSex" ColumnName="FSex" />
+                <ScalarProperty Name="FAge" ColumnName="FAge" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Test1">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tb_Test1">
+              <MappingFragment StoreEntitySet="tb_Test1">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbBillNo">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbBillNo">
+              <MappingFragment StoreEntitySet="tbBillNo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="CurrentId" ColumnName="CurrentId" />
+                <ScalarProperty Name="CurrentBillNo" ColumnName="CurrentBillNo" />
+                <ScalarProperty Name="CurrentTime" ColumnName="CurrentTime" />
+                <ScalarProperty Name="MaskInfo" ColumnName="MaskInfo" />
+                <ScalarProperty Name="EndLength" ColumnName="EndLength" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CodeName" ColumnName="CodeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbBlackList">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbBlackList">
+              <MappingFragment StoreEntitySet="tbBlackList">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Port" ColumnName="Port" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="IsAble" ColumnName="IsAble" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbButton">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbButton">
+              <MappingFragment StoreEntitySet="tbButton">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbDataType">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbDataType">
+              <MappingFragment StoreEntitySet="tbDataType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="DataTypeName" ColumnName="DataTypeName" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbDepartment">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbDepartment">
+              <MappingFragment StoreEntitySet="tbDepartment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbFields">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbFields">
+              <MappingFragment StoreEntitySet="tbFields">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TabId" ColumnName="TabId" />
+                <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+                <ScalarProperty Name="FieldViewName" ColumnName="FieldViewName" />
+                <ScalarProperty Name="FieldDataTypeId" ColumnName="FieldDataTypeId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsSearch" ColumnName="IsSearch" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbHtmlType">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbHtmlType">
+              <MappingFragment StoreEntitySet="tbHtmlType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="HtmlTypeName" ColumnName="HtmlTypeName" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbIcons">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbIcons">
+              <MappingFragment StoreEntitySet="tbIcons">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IconName" ColumnName="IconName" />
+                <ScalarProperty Name="IconCssInfo" ColumnName="IconCssInfo" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbMenu">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbMenu">
+              <MappingFragment StoreEntitySet="tbMenu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="LinkAddress" ColumnName="LinkAddress" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbMenuButton">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbMenuButton">
+              <MappingFragment StoreEntitySet="tbMenuButton">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="ButtonId" ColumnName="ButtonId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbNews">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbNews">
+              <MappingFragment StoreEntitySet="tbNews">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ftypeid" ColumnName="ftypeid" />
+                <ScalarProperty Name="ftitle" ColumnName="ftitle" />
+                <ScalarProperty Name="fcontent" ColumnName="fcontent" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbNewsType">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbNewsType">
+              <MappingFragment StoreEntitySet="tbNewsType">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ftypename" ColumnName="ftypename" />
+                <ScalarProperty Name="fsort" ColumnName="fsort" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbNotice">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbNotice">
+              <MappingFragment StoreEntitySet="tbNotice">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="No" ColumnName="No" />
+                <ScalarProperty Name="ftypeid" ColumnName="ftypeid" />
+                <ScalarProperty Name="ftitle" ColumnName="ftitle" />
+                <ScalarProperty Name="fcontent" ColumnName="fcontent" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="NoticeTime" ColumnName="NoticeTime" />
+                <ScalarProperty Name="SendBeginTime" ColumnName="SendBeginTime" />
+                <ScalarProperty Name="SendEndTime" ColumnName="SendEndTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbNoticeUser">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbNoticeUser">
+              <MappingFragment StoreEntitySet="tbNoticeUser">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="NoticeCode" ColumnName="NoticeCode" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="SendFlag" ColumnName="SendFlag" />
+                <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbParameter">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbParameter">
+              <MappingFragment StoreEntitySet="tbParameter">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="CodeName" ColumnName="CodeName" />
+                <ScalarProperty Name="FatherCode" ColumnName="FatherCode" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbRequestion">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbRequestion">
+              <MappingFragment StoreEntitySet="tbRequestion">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ftypeid" ColumnName="ftypeid" />
+                <ScalarProperty Name="ftitle" ColumnName="ftitle" />
+                <ScalarProperty Name="fcontent" ColumnName="fcontent" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbRequestionType">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbRequestionType">
+              <MappingFragment StoreEntitySet="tbRequestionType">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ftypename" ColumnName="ftypename" />
+                <ScalarProperty Name="fsort" ColumnName="fsort" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbRole">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbRole">
+              <MappingFragment StoreEntitySet="tbRole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbRoleMenu">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbRoleMenu">
+              <MappingFragment StoreEntitySet="tbRoleMenu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbRoleMenuButton">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbRoleMenuButton">
+              <MappingFragment StoreEntitySet="tbRoleMenuButton">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="ButtonId" ColumnName="ButtonId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbTable">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbTable">
+              <MappingFragment StoreEntitySet="tbTable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TabName" ColumnName="TabName" />
+                <ScalarProperty Name="TabViewName" ColumnName="TabViewName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbUser">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbUser">
+              <MappingFragment StoreEntitySet="tbUser">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="IsAble" ColumnName="IsAble" />
+                <ScalarProperty Name="IfChangePwd" ColumnName="IfChangePwd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbUserDepartment">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbUserDepartment">
+              <MappingFragment StoreEntitySet="tbUserDepartment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbUserRole">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbUserRole">
+              <MappingFragment StoreEntitySet="tbUserRole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbUserToken">
+            <EntityTypeMapping TypeName="ReactTSDBModel.tbUserToken">
+              <MappingFragment StoreEntitySet="tbUserToken">
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Port" ColumnName="Port" />
+                <ScalarProperty Name="LoginOutTime" ColumnName="LoginOutTime" />
+                <ScalarProperty Name="IsLoginOut" ColumnName="IsLoginOut" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_LoginViewInfo">
+            <EntityTypeMapping TypeName="ReactTSDBModel.v_LoginViewInfo">
+              <MappingFragment StoreEntitySet="v_LoginViewInfo">
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Port" ColumnName="Port" />
+                <ScalarProperty Name="LoginOutTime" ColumnName="LoginOutTime" />
+                <ScalarProperty Name="IsLoginOut" ColumnName="IsLoginOut" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Fields">
+            <EntityTypeMapping TypeName="ReactTSDBModel.vw_Fields">
+              <MappingFragment StoreEntitySet="vw_Fields">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TabId" ColumnName="TabId" />
+                <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+                <ScalarProperty Name="FieldViewName" ColumnName="FieldViewName" />
+                <ScalarProperty Name="FieldDataTypeId" ColumnName="FieldDataTypeId" />
+                <ScalarProperty Name="IsSearch" ColumnName="IsSearch" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="DataTypeName" ColumnName="DataTypeName" />
+                <ScalarProperty Name="TabName" ColumnName="TabName" />
+                <ScalarProperty Name="TabViewName" ColumnName="TabViewName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_News">
+            <EntityTypeMapping TypeName="ReactTSDBModel.vw_News">
+              <MappingFragment StoreEntitySet="vw_News">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ftypeid" ColumnName="ftypeid" />
+                <ScalarProperty Name="ftitle" ColumnName="ftitle" />
+                <ScalarProperty Name="fcontent" ColumnName="fcontent" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="ftypename" ColumnName="ftypename" />
+                <ScalarProperty Name="fsort" ColumnName="fsort" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_requestion">
+            <EntityTypeMapping TypeName="ReactTSDBModel.vw_requestion">
+              <MappingFragment StoreEntitySet="vw_requestion">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ftypeid" ColumnName="ftypeid" />
+                <ScalarProperty Name="ftitle" ColumnName="ftitle" />
+                <ScalarProperty Name="fcontent" ColumnName="fcontent" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="ftypename" ColumnName="ftypename" />
+                <ScalarProperty Name="fsort" ColumnName="fsort" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionName="ReactTSDBModel.Store.func_SplitStrToTable" FunctionImportName="func_SplitStrToTable">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ReactTSDBModel.func_SplitStrToTable_Result">
+                <ScalarProperty Name="str2table" ColumnName="str2table" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_CreateTable" FunctionName="ReactTSDBModel.Store.sp_CreateTable" />
+          <FunctionImportMapping FunctionImportName="sp_GetAuthorityByUserId" FunctionName="ReactTSDBModel.Store.sp_GetAuthorityByUserId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ReactTSDBModel.sp_GetAuthorityByUserId_Result">
+                <ScalarProperty Name="menuid" ColumnName="menuid" />
+                <ScalarProperty Name="menuname" ColumnName="menuname" />
+                <ScalarProperty Name="parentid" ColumnName="parentid" />
+                <ScalarProperty Name="menuicon" ColumnName="menuicon" />
+                <ScalarProperty Name="buttonid" ColumnName="buttonid" />
+                <ScalarProperty Name="buttonname" ColumnName="buttonname" />
+                <ScalarProperty Name="buttonicon" ColumnName="buttonicon" />
+                <ScalarProperty Name="roleid" ColumnName="roleid" />
+                <ScalarProperty Name="checked" ColumnName="checked" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_MvcPager" FunctionName="ReactTSDBModel.Store.sp_MvcPager" />
+          <FunctionImportMapping FunctionImportName="sp_Pager" FunctionName="ReactTSDBModel.Store.sp_Pager" />
+          <FunctionImportMapping FunctionImportName="sp_SetRoleAuthorize" FunctionName="ReactTSDBModel.Store.sp_SetRoleAuthorize" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
