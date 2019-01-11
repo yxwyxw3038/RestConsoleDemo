@@ -36,6 +36,12 @@ namespace RestConsoleDemo.EF
         public virtual DbSet<tbDataType> tbDataType { get; set; }
         public virtual DbSet<tbDepartment> tbDepartment { get; set; }
         public virtual DbSet<tbFields> tbFields { get; set; }
+        public virtual DbSet<tbFlow> tbFlow { get; set; }
+        public virtual DbSet<tbFlowLog> tbFlowLog { get; set; }
+        public virtual DbSet<tbFlowStep> tbFlowStep { get; set; }
+        public virtual DbSet<tbFlowStepLog> tbFlowStepLog { get; set; }
+        public virtual DbSet<tbFlowStepUser> tbFlowStepUser { get; set; }
+        public virtual DbSet<tbFlowStepUserLog> tbFlowStepUserLog { get; set; }
         public virtual DbSet<tbHtmlType> tbHtmlType { get; set; }
         public virtual DbSet<tbIcons> tbIcons { get; set; }
         public virtual DbSet<tbMenu> tbMenu { get; set; }
@@ -55,6 +61,7 @@ namespace RestConsoleDemo.EF
         public virtual DbSet<tbUserDepartment> tbUserDepartment { get; set; }
         public virtual DbSet<tbUserRole> tbUserRole { get; set; }
         public virtual DbSet<tbUserToken> tbUserToken { get; set; }
+        public virtual DbSet<v_FlowViewInfo> v_FlowViewInfo { get; set; }
         public virtual DbSet<v_LoginViewInfo> v_LoginViewInfo { get; set; }
         public virtual DbSet<vw_Fields> vw_Fields { get; set; }
         public virtual DbSet<vw_News> vw_News { get; set; }

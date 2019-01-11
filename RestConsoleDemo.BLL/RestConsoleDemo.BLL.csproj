@@ -85,6 +85,7 @@
     <Compile Include="SysInfo\BillNoBill.cs" />
     <Compile Include="SysInfo\BlackListBill.cs" />
     <Compile Include="SysInfo\FileBill.cs" />
+    <Compile Include="SysInfo\FlowBill.cs" />
     <Compile Include="SysInfo\GeetestBill.cs" />
     <Compile Include="SysInfo\LogBill.cs" />
     <Compile Include="SysInfo\LoginBill.cs" />
