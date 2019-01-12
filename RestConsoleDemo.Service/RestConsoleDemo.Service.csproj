@@ -63,6 +63,8 @@
     <Compile Include="CustService.cs" />
     <Compile Include="FileInfo\FileService.cs" />
     <Compile Include="FileInfo\IFileService.cs" />
+    <Compile Include="FlowInfo\FlowInfoService.cs" />
+    <Compile Include="FlowInfo\IFlowInfoService.cs.cs" />
     <Compile Include="Helper\RequestHelper.cs" />
     <Compile Include="Helper\ResponseHelper.cs" />
     <Compile Include="Helper\SecurityHelper.cs" />

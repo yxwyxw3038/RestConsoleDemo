@@ -23,7 +23,6 @@ namespace RestConsoleDemo.EF
         public string CreateBy { get; set; }
         public Nullable<System.DateTime> UpdateTime { get; set; }
         public string UpdateBy { get; set; }
-        public string BillNo { get; set; }
         public Nullable<int> status { get; set; }
         public string MenuCode { get; set; }
         public string MenuName { get; set; }

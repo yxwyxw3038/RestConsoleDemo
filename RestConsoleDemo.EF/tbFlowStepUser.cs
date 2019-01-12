@@ -14,7 +14,7 @@ namespace RestConsoleDemo.EF
     
     public partial class tbFlowStepUser
     {
-        public int Id { get; set; }
+        public string Code { get; set; }
         public string StepCode { get; set; }
         public string FlowCode { get; set; }
         public Nullable<int> UserId { get; set; }

@@ -136,7 +136,6 @@
           <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
           <Property Name="UpdateTime" Type="datetime" />
           <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
-          <Property Name="BillNo" Type="varchar" MaxLength="32" />
           <Property Name="status" Type="int" />
         </EntityType>
         <EntityType Name="tbFlowLog">
@@ -186,9 +185,9 @@
         </EntityType>
         <EntityType Name="tbFlowStepUser">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="Code" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="64" Nullable="false" />
           <Property Name="StepCode" Type="varchar" MaxLength="64" Nullable="false" />
           <Property Name="FlowCode" Type="varchar" MaxLength="64" Nullable="false" />
           <Property Name="UserId" Type="int" />
@@ -200,9 +199,9 @@
         </EntityType>
         <EntityType Name="tbFlowStepUserLog">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="Code" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="64" Nullable="false" />
           <Property Name="FlowCode" Type="varchar" MaxLength="64" Nullable="false" />
           <Property Name="StepCode" Type="varchar" MaxLength="64" Nullable="false" />
           <Property Name="StepUserId" Type="int" />
@@ -471,7 +470,6 @@
           <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
           <Property Name="UpdateTime" Type="datetime" />
           <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
-          <Property Name="BillNo" Type="varchar" MaxLength="32" />
           <Property Name="status" Type="int" />
           <Property Name="MenuCode" Type="varchar" MaxLength="50" />
           <Property Name="MenuName" Type="varchar" MaxLength="50" />
@@ -647,7 +645,6 @@
     [v_FlowViewInfo].[CreateBy] AS [CreateBy], 
     [v_FlowViewInfo].[UpdateTime] AS [UpdateTime], 
     [v_FlowViewInfo].[UpdateBy] AS [UpdateBy], 
-    [v_FlowViewInfo].[BillNo] AS [BillNo], 
     [v_FlowViewInfo].[status] AS [status], 
     [v_FlowViewInfo].[MenuCode] AS [MenuCode], 
     [v_FlowViewInfo].[MenuName] AS [MenuName], 
@@ -856,7 +853,6 @@
           <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
           <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BillNo" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="status" Type="Int32" />
         </EntityType>
         <EntityType Name="tbFlowLog">
@@ -906,9 +902,9 @@
         </EntityType>
         <EntityType Name="tbFlowStepUser">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="Code" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="StepCode" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FlowCode" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="UserId" Type="Int32" />
@@ -920,9 +916,9 @@
         </EntityType>
         <EntityType Name="tbFlowStepUserLog">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="Code" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FlowCode" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="StepCode" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="StepUserId" Type="Int32" />
@@ -1182,7 +1178,6 @@
           <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
           <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BillNo" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="status" Type="Int32" />
           <Property Name="MenuCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -1494,7 +1489,6 @@
                 <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
                 <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
                 <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
-                <ScalarProperty Name="BillNo" ColumnName="BillNo" />
                 <ScalarProperty Name="status" ColumnName="status" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1550,7 +1544,7 @@
           <EntitySetMapping Name="tbFlowStepUser">
             <EntityTypeMapping TypeName="ReactTSDBModel.tbFlowStepUser">
               <MappingFragment StoreEntitySet="tbFlowStepUser">
-                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="StepCode" ColumnName="StepCode" />
                 <ScalarProperty Name="FlowCode" ColumnName="FlowCode" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -1565,7 +1559,7 @@
           <EntitySetMapping Name="tbFlowStepUserLog">
             <EntityTypeMapping TypeName="ReactTSDBModel.tbFlowStepUserLog">
               <MappingFragment StoreEntitySet="tbFlowStepUserLog">
-                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="FlowCode" ColumnName="FlowCode" />
                 <ScalarProperty Name="StepCode" ColumnName="StepCode" />
                 <ScalarProperty Name="StepUserId" ColumnName="StepUserId" />
@@ -1843,7 +1837,6 @@
                 <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
                 <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
                 <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
-                <ScalarProperty Name="BillNo" ColumnName="BillNo" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="MenuCode" ColumnName="MenuCode" />
                 <ScalarProperty Name="MenuName" ColumnName="MenuName" />

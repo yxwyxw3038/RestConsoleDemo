@@ -71,6 +71,7 @@
     <Compile Include="Model\CascaderModel.cs" />
     <Compile Include="Model\CascaderNullModel.cs" />
     <Compile Include="Model\FilterModel.cs" />
+    <Compile Include="Model\FlowModel.cs" />
     <Compile Include="Model\IPCountInfoModel.cs" />
     <Compile Include="Model\LoginViewModel.cs" />
     <Compile Include="Model\LogModel.cs" />
