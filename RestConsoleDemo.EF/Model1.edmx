@@ -454,6 +454,28 @@
           <Property Name="name" Type="nvarchar" MaxLength="50" />
         </EntityType>-->
         <!--生成过程中发现错误:
+警告 6002: 表/视图“ReactTSDB.dbo.v_FlowStepUserViewInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_FlowStepUserViewInfo">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="StepCode" />
+            <PropertyRef Name="FlowCode" />
+            <PropertyRef Name="AccountName" />
+            <PropertyRef Name="RealName" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="StepCode" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="FlowCode" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Notes" Type="varchar" MaxLength="500" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RealName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
 警告 6002: 表/视图“ReactTSDB.dbo.v_FlowViewInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="v_FlowViewInfo">
           <Key>
@@ -634,6 +656,21 @@
           <EntitySet Name="tbUserDepartment" EntityType="Self.tbUserDepartment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbUserRole" EntityType="Self.tbUserRole" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbUserToken" EntityType="Self.tbUserToken" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="v_FlowStepUserViewInfo" EntityType="Self.v_FlowStepUserViewInfo" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_FlowStepUserViewInfo].[Code] AS [Code], 
+    [v_FlowStepUserViewInfo].[StepCode] AS [StepCode], 
+    [v_FlowStepUserViewInfo].[FlowCode] AS [FlowCode], 
+    [v_FlowStepUserViewInfo].[UserId] AS [UserId], 
+    [v_FlowStepUserViewInfo].[Notes] AS [Notes], 
+    [v_FlowStepUserViewInfo].[CreateTime] AS [CreateTime], 
+    [v_FlowStepUserViewInfo].[CreateBy] AS [CreateBy], 
+    [v_FlowStepUserViewInfo].[UpdateTime] AS [UpdateTime], 
+    [v_FlowStepUserViewInfo].[UpdateBy] AS [UpdateBy], 
+    [v_FlowStepUserViewInfo].[AccountName] AS [AccountName], 
+    [v_FlowStepUserViewInfo].[RealName] AS [RealName]
+    FROM [dbo].[v_FlowStepUserViewInfo] AS [v_FlowStepUserViewInfo]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_FlowViewInfo" EntityType="Self.v_FlowViewInfo" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_FlowViewInfo].[Code] AS [Code], 
@@ -1163,6 +1200,26 @@
           <Property Name="LoginOutTime" Type="DateTime" Precision="3" />
           <Property Name="IsLoginOut" Type="Int32" />
         </EntityType>
+        <EntityType Name="v_FlowStepUserViewInfo">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="StepCode" />
+            <PropertyRef Name="FlowCode" />
+            <PropertyRef Name="AccountName" />
+            <PropertyRef Name="RealName" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StepCode" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FlowCode" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Notes" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RealName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
         <EntityType Name="v_FlowViewInfo">
           <Key>
             <PropertyRef Name="Code" />
@@ -1297,6 +1354,7 @@
           <EntitySet Name="tbUserDepartment" EntityType="Self.tbUserDepartment" />
           <EntitySet Name="tbUserRole" EntityType="Self.tbUserRole" />
           <EntitySet Name="tbUserToken" EntityType="Self.tbUserToken" />
+          <EntitySet Name="v_FlowStepUserViewInfo" EntityType="Self.v_FlowStepUserViewInfo" />
           <EntitySet Name="v_FlowViewInfo" EntityType="Self.v_FlowViewInfo" />
           <EntitySet Name="v_LoginViewInfo" EntityType="Self.v_LoginViewInfo" />
           <EntitySet Name="vw_Fields" EntityType="Self.vw_Fields" />
@@ -1822,6 +1880,23 @@
                 <ScalarProperty Name="Port" ColumnName="Port" />
                 <ScalarProperty Name="LoginOutTime" ColumnName="LoginOutTime" />
                 <ScalarProperty Name="IsLoginOut" ColumnName="IsLoginOut" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_FlowStepUserViewInfo">
+            <EntityTypeMapping TypeName="ReactTSDBModel.v_FlowStepUserViewInfo">
+              <MappingFragment StoreEntitySet="v_FlowStepUserViewInfo">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="StepCode" ColumnName="StepCode" />
+                <ScalarProperty Name="FlowCode" ColumnName="FlowCode" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

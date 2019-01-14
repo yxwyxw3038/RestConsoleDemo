@@ -122,16 +122,16 @@ namespace RestConsoleDemo.BLL.SysInfo
                 FlowModel temp = new FlowModel();
                 IsoDateTimeConverter timeFormat = new IsoDateTimeConverter();
                 timeFormat.DateTimeFormat = "yyyy-MM-dd HH:mm:ss";
-                tbFlow Flow = new tbFlow();
+                v_FlowViewInfo Flow = new v_FlowViewInfo();
                 AchieveDBEntities myDbContext = new AchieveDBEntities();
-                Flow = myDbContext.tbFlow.Where(p => p.Code== Code).ToList().FirstOrDefault();
+                Flow = myDbContext.v_FlowViewInfo.Where(p => p.Code== Code).ToList().FirstOrDefault();
                 if (Flow != null )
                 {
                     List<tbFlowStep> FlowStep = new List<tbFlowStep>();
                     FlowStep= myDbContext.tbFlowStep.Where(p => p.FlowCode == Code).ToList();
 
-                    List<tbFlowStepUser> FlowStepUser = new List<tbFlowStepUser>();
-                    FlowStepUser = myDbContext.tbFlowStepUser.Where(p => p.FlowCode == Code).ToList();
+                    List<v_FlowStepUserViewInfo> FlowStepUser = new List<v_FlowStepUserViewInfo>();
+                    FlowStepUser = myDbContext.v_FlowStepUserViewInfo.Where(p => p.FlowCode == Code).ToList();
 
                     temp.Flow = Flow;
                     temp.FlowStep = FlowStep;
@@ -161,9 +161,10 @@ namespace RestConsoleDemo.BLL.SysInfo
                 DateTime now = DateTime.Now;
                 AchieveDBEntities myDbContext = new AchieveDBEntities();
                 FlowModel tb = JsonConvert.DeserializeObject<FlowModel>(Flowstr);
-                tbFlow Flow = tb.Flow;
+                tbFlow Flow = new tbFlow();
+                ObjectHelper.CopyValue(tb.Flow, Flow);
                 List<tbFlowStep> FlowStep = tb.FlowStep;
-                List<tbFlowStepUser> FlowStepUser = tb.FlowStepUser;
+                List<v_FlowStepUserViewInfo> FlowStepUser = tb.FlowStepUser;
                 if(tb==null)
                 {
                     throw new Exception("流程数据异常！");
@@ -198,7 +199,7 @@ namespace RestConsoleDemo.BLL.SysInfo
                     st.UpdateTime = now;
                     tbFlowStepUser temp = new tbFlowStepUser();
                     string[] keys = { "Id" };
-                    ObjectHelper.CopyValueNotKey(st, temp, keys);
+                    ObjectHelper.CopyValue(st, temp);
                     myDbContext.tbFlowStepUser.Add(temp);
                 }
                 myDbContext.SaveChanges();
@@ -221,9 +222,10 @@ namespace RestConsoleDemo.BLL.SysInfo
             {
                 DateTime now = DateTime.Now;
                 FlowModel tb = JsonConvert.DeserializeObject<FlowModel>(Flowstr);
-                tbFlow Flow = tb.Flow;
+                tbFlow Flow = new tbFlow();
+                ObjectHelper.CopyValue(tb.Flow, Flow);
                 List<tbFlowStep> FlowStep = tb.FlowStep;
-                List<tbFlowStepUser> FlowStepUser = tb.FlowStepUser;
+                List<v_FlowStepUserViewInfo> FlowStepUser = tb.FlowStepUser;
                 if (tb == null)
                 {
                     throw new Exception("流程数据异常！");
@@ -287,7 +289,7 @@ namespace RestConsoleDemo.BLL.SysInfo
                         tbFlowStepUser temp = myDbContext.tbFlowStepUser.Where(p => p.Code == st.Code).ToList().FirstOrDefault();
                         if (temp != null)
                         {
-                            ObjectHelper.CopyValueNotKey(st, temp, keys);
+                            ObjectHelper.CopyValue(st, temp);
                             temp.UpdateTime = now;
                         }
                         else
@@ -295,7 +297,9 @@ namespace RestConsoleDemo.BLL.SysInfo
 
                             st.FlowCode = Flow.Code;
                             st.UpdateTime = now;
-                            myDbContext.tbFlowStepUser.Add(st);
+                            tbFlowStepUser newtemp = new tbFlowStepUser();
+                            ObjectHelper.CopyValue(st, newtemp);
+                            myDbContext.tbFlowStepUser.Add(newtemp);
                         }
 
                     }

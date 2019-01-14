@@ -9,8 +9,8 @@ namespace RestConsoleDemo.BLL.Model
 {
     public class FlowModel
     {
-        public tbFlow Flow { get; set; }
+        public v_FlowViewInfo Flow { get; set; }
         public List<tbFlowStep> FlowStep { get; set; }
-        public List<tbFlowStepUser> FlowStepUser { get; set; }
+        public List<v_FlowStepUserViewInfo> FlowStepUser { get; set; }
     }
 }

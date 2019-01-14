@@ -61,6 +61,7 @@ namespace RestConsoleDemo.EF
         public virtual DbSet<tbUserDepartment> tbUserDepartment { get; set; }
         public virtual DbSet<tbUserRole> tbUserRole { get; set; }
         public virtual DbSet<tbUserToken> tbUserToken { get; set; }
+        public virtual DbSet<v_FlowStepUserViewInfo> v_FlowStepUserViewInfo { get; set; }
         public virtual DbSet<v_FlowViewInfo> v_FlowViewInfo { get; set; }
         public virtual DbSet<v_LoginViewInfo> v_LoginViewInfo { get; set; }
         public virtual DbSet<vw_Fields> vw_Fields { get; set; }
