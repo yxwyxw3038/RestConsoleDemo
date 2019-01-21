@@ -718,15 +718,15 @@ namespace RestConsoleDemo.BLL
                 string temp = string.Empty;
 
                 string strchildrenall = GetTreeUserAll();
-                string strall = "{\"id\":\"" + "all" + "\" ,\"label\":\"" + "全员" + "\" ,\"RealName\":\"全员\", \"children\":" + strchildrenall + "  }";
+                string strall = "{\"id\":\"" + "all" + "\" ,\"label\":\"" + "全员" + "\" ,\"RealName\":\"全员\",\"value\":\"" + "all" + "\" ,\"key\":\"" + "all" + "\" ,\"title\":\"全员\", \"children\":" + strchildrenall + "  }";
                 listtemp.Add(strall);
 
                 string strchildrendept= GetTreeUserDept();
-                string strdept = "{\"id\":\"" + "dept" + "\" ,\"label\":\"" + "部门" + "\",\"RealName\":\"部门\" , \"children\":" + strchildrendept + "  }";
+                string strdept = "{\"id\":\"" + "dept" + "\" ,\"label\":\"" + "部门" + "\",\"RealName\":\"部门\" ,\"value\":\"" + "dept" + "\" ,\"key\":\"" + "dept" + "\" ,\"title\":\"部门\", \"children\":" + strchildrendept + "  }";
                 listtemp.Add(strdept);
 
                 string strchildrenrole = GetTreeUserRole();
-                string strrole = "{\"id\":\"" + "role" + "\" ,\"label\":\"" + "权限" + "\",\"RealName\":\"权限\" , \"children\":" + strchildrenrole + "  }";
+                string strrole = "{\"id\":\"" + "role" + "\" ,\"label\":\"" + "权限" + "\",\"RealName\":\"权限\",\"value\":\"" + "role" + "\" ,\"key\":\"" + "role" + "\" ,\"title\":\"权限\" , \"children\":" + strchildrenrole + "  }";
                 listtemp.Add(strrole);
 
                     for (int i = 0; i < listtemp.Count; i++)
@@ -785,7 +785,7 @@ namespace RestConsoleDemo.BLL
 
 
 
-                        string str = "{\"id\":\"all-0-" + tp.ID.ToString() + "\" , \"label\":\"" + tp.AccountName + "\",\"RealName\":\"" + tp.RealName + "\"}";
+                        string str = "{\"id\":\"all-0-" + tp.ID.ToString() + "\" , \"label\":\"" + tp.AccountName + "\",\"RealName\":\"" + tp.RealName + "\",\"value\":\"all-0-" + tp.ID.ToString() + "\" , \"key\":\"all-0-" + tp.ID.ToString() + "\",\"title\":\"" + tp.RealName + "\"}";
                          listtemp.Add(str);
 
                     }
@@ -856,12 +856,12 @@ namespace RestConsoleDemo.BLL
                         {
 
 
-                            str = "{\"id\":\"dept-" + tp.Id.ToString() + "\" , \"label\":\"" + tp.DepartmentName + "\",\"RealName\":\""+tp.DepartmentName+"\"}";
+                            str = "{\"id\":\"dept-" + tp.Id.ToString() + "\" , \"label\":\"" + tp.DepartmentName + "\",\"RealName\":\""+tp.DepartmentName+ "\",\"value\":\"dept-" + tp.Id.ToString() + "\",\"key\":\"dept-" + tp.Id.ToString() + "\" , \"title\":\"" + tp.DepartmentName + "\"}";
 
                         }
                         else
                         {
-                            str = "{\"id\":\"dept-" + tp.Id.ToString() + "\" ,\"label\":\"" + tp.DepartmentName + "\",\"RealName\":\""+tp.DepartmentName+"\" , \"children\":[" + str + "]  }";
+                            str = "{\"id\":\"dept-" + tp.Id.ToString() + "\" ,\"label\":\"" + tp.DepartmentName + "\",\"RealName\":\""+tp.DepartmentName+ "\",\"value\":\"dept-" + tp.Id.ToString() + "\",\"key\":\"dept-" + tp.Id.ToString() + "\" , \"title\":\"" + tp.DepartmentName + "\" , \"children\":[" + str + "]  }";
                         }
 
 
@@ -919,7 +919,7 @@ namespace RestConsoleDemo.BLL
                 {
 
 
-                    string str = "{\"id\":\"dept-" + Id.ToString() + "-" + tp.ID.ToString() + "\" , \"label\":\"" + tp.AccountName + "\",\"RealName\":\"" + tp.RealName + "\"}";
+                    string str = "{\"id\":\"dept-" + Id.ToString() + "-" + tp.ID.ToString() + "\" , \"label\":\"" + tp.AccountName + "\",\"RealName\":\"" + tp.RealName + "\",\"value\":\"dept-"+ Id.ToString() + "-" + tp.ID.ToString() + "\" , \"key\":\"dept-"  +Id.ToString() + "-" + tp.ID.ToString() + "\",\"title\":\"" + tp.RealName + "\"}";
 
                    
 
@@ -987,12 +987,12 @@ namespace RestConsoleDemo.BLL
                         {
 
 
-                            str = "{\"id\":\"role-" + tp.Id.ToString() + "\" , \"label\":\"" + tp.RoleName + "\",\"RealName\":\""+tp.RoleName+"\"}";
+                            str = "{\"id\":\"role-" + tp.Id.ToString() + "\" , \"label\":\"" + tp.RoleName + "\",\"RealName\":\""+tp.RoleName+ "\",\"value\":\"role-" + tp.Id.ToString() + "\",\"key\":\"role-" + tp.Id.ToString() + "\" , \"title\":\"" + tp.RoleName + "\"}";
 
                         }
                         else
                         {
-                            str = "{\"id\":\"role-" + tp.Id.ToString() + "\" ,\"label\":\"" + tp.RoleName + "\",\"RealName\":\""+tp.RoleName+"\" , \"children\":[" + str + "]  }";
+                            str = "{\"id\":\"role-" + tp.Id.ToString() + "\" ,\"label\":\"" + tp.RoleName + "\",\"RealName\":\""+tp.RoleName+ "\",\"value\":\"role-" + tp.Id.ToString() + "\",\"key\":\"role-" + tp.Id.ToString() + "\" , \"title\":\"" + tp.RoleName + "\" , \"children\":[" + str + "]  }";
                         }
 
 
@@ -1050,7 +1050,7 @@ namespace RestConsoleDemo.BLL
                 {
 
 
-                    string str = "{\"id\":\"role-" + Id.ToString() + "-" + tp.ID.ToString() + "\" , \"label\":\"" + tp.AccountName + "\",\"RealName\":\"" + tp.RealName + "\"}";
+                    string str = "{\"id\":\"role-" + Id.ToString() + "-" + tp.ID.ToString() + "\" , \"label\":\"" + tp.AccountName + "\",\"RealName\":\"" + tp.RealName + "\",\"value\":\"role-" + Id.ToString() + "-" + tp.ID.ToString() + "\" , \"key\":\"role-" + Id.ToString() + "-" + tp.ID.ToString() + "\",\"title\":\"" + tp.RealName + "\"}";
 
 
 
