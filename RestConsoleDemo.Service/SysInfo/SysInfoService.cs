@@ -389,8 +389,9 @@ namespace RestConsoleDemo.Service
                 string oldStatus = nvc["oldStatus"];
                 string newStatus = nvc["newStatus"];
                 string Token = nvc["Token"];
+                string UpdateBy = nvc["UpdateBy"];
                 UserBill.CheckToken(Token);
-                string str = NoticeBill.UpdateNoticeStatus(Code, Convert.ToInt32(oldStatus), Convert.ToInt32(newStatus));
+                string str = NoticeBill.UpdateNoticeStatus(Code, Convert.ToInt32(oldStatus), Convert.ToInt32(newStatus), UpdateBy);
                 return str;
 
 

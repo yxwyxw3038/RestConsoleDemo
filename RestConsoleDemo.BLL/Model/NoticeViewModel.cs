@@ -20,5 +20,8 @@ namespace RestConsoleDemo.BLL.Model
         public int SendCount { get; set; }
         public int Count { get; set; }
 
+        public Nullable<System.DateTime> UpdateTime { get; set; }
+        public string UpdateBy { get; set; }
+
     }
 }

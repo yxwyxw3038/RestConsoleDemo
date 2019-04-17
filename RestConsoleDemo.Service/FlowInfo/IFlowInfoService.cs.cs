@@ -48,5 +48,10 @@ ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, B
 ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
         [Description("删除流程接口")]
         string DeleteFlow(Stream stream);
+
+        [OperationContract, WebInvoke(UriTemplate = "/UpdateFlowStatus", Method = "POST",
+ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+        [Description("更新流程状态接口")]
+        string UpdateFlowStatus(Stream stream);
     }
 }

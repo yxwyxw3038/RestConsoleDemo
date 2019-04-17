@@ -128,7 +128,7 @@ namespace RestConsoleDemo.BLL.SysInfo
                 if (Flow != null )
                 {
                     List<tbFlowStep> FlowStep = new List<tbFlowStep>();
-                    FlowStep= myDbContext.tbFlowStep.Where(p => p.FlowCode == Code).ToList();
+                    FlowStep= myDbContext.tbFlowStep.Where(p => p.FlowCode == Code).OrderBy( p => p.StepNum).ToList();
 
                     List<v_FlowStepUserViewInfo> FlowStepUser = new List<v_FlowStepUserViewInfo>();
                     FlowStepUser = myDbContext.v_FlowStepUserViewInfo.Where(p => p.FlowCode == Code).ToList();
@@ -173,10 +173,10 @@ namespace RestConsoleDemo.BLL.SysInfo
                 {
                     throw new Exception("流程步骤数据异常！");
                 }
-                if (FlowStepUser == null || FlowStepUser.Count <= 0)
-                {
-                    throw new Exception("流程步骤数据异常！");
-                }
+                //if (FlowStepUser == null || FlowStepUser.Count <= 0)
+                //{
+                //    throw new Exception("流程步骤数据异常！");
+                //}
                 //string Code = Guid.NewGuid().ToString();
                 string No = BillNoBill.GetBillNo(myDbContext, "LC");
                
@@ -203,7 +203,7 @@ namespace RestConsoleDemo.BLL.SysInfo
                     myDbContext.tbFlowStepUser.Add(temp);
                 }
                 myDbContext.SaveChanges();
-                str = ResponseHelper.ResponseMsg("1", "保存成功", "");
+                str = ResponseHelper.ResponseMsg("1", "保存成功", Flow.Code);
 
 
             }
@@ -315,7 +315,7 @@ namespace RestConsoleDemo.BLL.SysInfo
 
                 }
                 myDbContext.SaveChanges();
-                str = ResponseHelper.ResponseMsg("1", "保存成功", "");
+                str = ResponseHelper.ResponseMsg("1", "保存成功", Flow.Code);
 
             }
             catch (Exception ex)
@@ -379,6 +379,37 @@ namespace RestConsoleDemo.BLL.SysInfo
             }
 
             return str;
+        }
+
+        public static string UpdateFlowStatus(string Code, int oldStatus, int newStatus,string UpdateBy)
+        {
+            string str = string.Empty;
+            try
+            {
+                AchieveDBEntities myDbContext = new AchieveDBEntities();
+                tbFlow main = myDbContext.tbFlow.Where(p => p.Code == Code).ToList().FirstOrDefault();
+                if (main == null)
+                {
+                    throw new Exception("未找到相关数据！");
+                }
+                if (main.status != oldStatus)
+                {
+                    throw new Exception("数据已经被其它人操作，请刷新！");
+                }
+                main.status = newStatus;
+                main.UpdateTime = DateTime.Now;
+                main.UpdateBy = UpdateBy;
+                myDbContext.SaveChanges();
+                str = ResponseHelper.ResponseMsg("1", "保存成功", "");
+
+            }
+            catch (Exception ex)
+            {
+                str = ResponseHelper.ResponseMsg("-1", ex.Message, "");
+            }
+
+            return str;
+
         }
     }
 }

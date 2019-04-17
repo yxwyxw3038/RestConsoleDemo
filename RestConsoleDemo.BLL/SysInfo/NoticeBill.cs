@@ -303,7 +303,7 @@ namespace RestConsoleDemo.BLL.SysInfo
 
             return str;
         }
-        public static string UpdateNoticeStatus(string Code, int oldStatus, int newStatus)
+        public static string UpdateNoticeStatus(string Code, int oldStatus, int newStatus,string UpdateBy)
         {
             string str = string.Empty;
             try
@@ -320,6 +320,7 @@ namespace RestConsoleDemo.BLL.SysInfo
                 }
                 main.status = newStatus;
                 main.UpdateTime = DateTime.Now;
+                main.UpdateBy = UpdateBy;
                 myDbContext.SaveChanges();
                 str = ResponseHelper.ResponseMsg("1", "保存成功", "");
 

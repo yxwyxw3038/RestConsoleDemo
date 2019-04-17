@@ -169,5 +169,32 @@ namespace RestConsoleDemo.Service
                 return RestConsoleDemo.BLL.Helper.ResponseHelper.ResponseMsg("-1", ex.Message, "");
             }
         }
+
+        public string UpdateFlowStatus(Stream stream)
+        {
+            StreamReader sr = new StreamReader(stream);
+            try
+            {
+                Helper.ResponseHelper.SetHeaderInfo();
+                string s = sr.ReadToEnd(); s = RestConsoleDemo.BLL.Helper.Base64Helper.DecodeBase64NotEnd(s);
+
+                NameValueCollection nvc = System.Web.HttpUtility.ParseQueryString(s);
+                string Code = nvc["Code"];
+                string oldStatus = nvc["oldStatus"];
+                string newStatus = nvc["newStatus"];
+                string Token = nvc["Token"];
+                string UpdateBy = nvc["UpdateBy"];
+                UserBill.CheckToken(Token);
+                string str = FlowBill.UpdateFlowStatus(Code, Convert.ToInt32(oldStatus), Convert.ToInt32(newStatus), UpdateBy);
+                return str;
+
+
+            }
+            catch (Exception ex)
+            {
+                return RestConsoleDemo.BLL.Helper.ResponseHelper.ResponseMsg("-1", ex.Message, "");
+            }
+        }
+
     }
 }

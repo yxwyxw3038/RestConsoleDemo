@@ -20,7 +20,7 @@ namespace RestConsoleDemo.BLL.Helper
             md5.Clear();
 
             StringBuilder builder = new StringBuilder();
-            for (int i = 0; i < md5data.Length - 1; i++)
+            for (int i = 0; i < md5data.Length; i++)
             {
                 builder.Append(md5data[i].ToString("X2"));
             }
